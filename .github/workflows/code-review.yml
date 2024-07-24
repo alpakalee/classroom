@@ -15,7 +15,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+      
+    - name: Check environment variable
+      run: echo $OPENAI_API_KEY
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        
     - name: Install dependencies
       run: |
         sudo apt-get update
