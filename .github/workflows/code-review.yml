@@ -58,10 +58,12 @@ jobs:
       continue-on-error: true
 
     - name: Check environment variable
-      run: echo $OPENAI_API_KEY
+      run: echo "OPENAI_API_KEY: $OPENAI_API_KEY"
 
     - name: Analyze with ChatGPT
       if: always()
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: node analyze_results.js
 
     - name: Upload feedback
@@ -76,4 +78,3 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         path: feedback.log
- 
