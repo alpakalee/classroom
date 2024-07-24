@@ -61,7 +61,10 @@ jobs:
       run: |
         echo "Running analyze_results.js"
         node analyze_results.js
-
+        
+    - name: Output feedback log
+      if: always()
+      run: cat feedback.log
 
     - name: Upload feedback
       uses: actions/upload-artifact@v2
