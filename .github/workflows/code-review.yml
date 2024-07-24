@@ -54,11 +54,6 @@ jobs:
         cat result.log
       continue-on-error: true
 
-    - name: Check environment variable
-      run: echo $"ㅋㅋ"
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
     - name: Analyze with ChatGPT
       if: always()
       env:
