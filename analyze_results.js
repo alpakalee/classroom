@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from 'openai';
 
 // 환경 변수에서 API 키를 가져옵니다.
 const apiKey = process.env.OPENAI_API_KEY;
-
+console.log('OPENAI_API_KEY:', apiKey);
 if (!apiKey) {
   throw new Error('API key not found');
 }
