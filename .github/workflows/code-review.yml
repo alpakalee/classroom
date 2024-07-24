@@ -61,9 +61,10 @@ jobs:
 
     - name: Analyze with ChatGPT
       if: always()
-      run: node analyze_results.js
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: node analyze_results.js
+
 
     - name: Upload feedback
       uses: actions/upload-artifact@v2
